@@ -1,7 +1,9 @@
+version: '3.8'
+
 services:
   db:
     image: postgres:16-alpine
-    container-name: inventario-db
+    container_name: inventario-db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -13,18 +15,16 @@ services:
 
   app:
     build: .
-    container-name: inventariodb
+    container_name: inventario-app 
     environment:
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_NAME: inventariodb
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/inventariodb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
     ports:
       - "8080:8080"
     depends_on:
       - db
     restart: unless-stopped
-  
-  volumes:
-    - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
