@@ -23,7 +23,7 @@ docker compose up --build
 
 ## Endpoints
 | Método | Endpoint            | Description               |
-| :---   | :---:               | ---:                      |
+| :---   | :---                | ---:                      |
 | GET    | /api/prodcutos      | Lista todos los productos |
 | GET    | /api/prodcutos{id}  | Obtener producto por ID   |
 | PUT    | /api/prodcutos/{id} | Actualizar productos      |
