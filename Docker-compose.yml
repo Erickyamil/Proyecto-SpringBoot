@@ -12,6 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
+    # IMPORTANTE: Cambiamos "build: ." por tu imagen de Docker Hub
     image: erickyamilrc/inventario-app:latest
     container_name: inventario-app-service
     environment:
